@@ -4,26 +4,38 @@ const { join } = require('path');
 // const video = import('wdio-video-reporter');
 
 exports.config = {
-  hostname: 'localhost',
-  path: '/wd/hub',
-  port: 4723,
+  // hostname: 'localhost',
+  // path: '/wd/hub',
+  // port: 4723,
+  user: 'larissanasciment_sYEKV3',
+  key: 'knaDC7LxXpxJ1kLfJWoc',
   // services: ['appium'],
+  services: ['browserstack'],
   specs: ['./test/specs/**/*.spec.js'],
   framework: 'mocha',
   capabilities: [
     {
-      platformName: 'Android',
-      platformVersion: '9',
-      deviceName: 'ebac-qe',
-      automationName: 'UiAutomator2',
-      app: join(process.cwd(), './app/android/loja-ebac.apk'),
-      appWaitActivity: 'com.woocommerce.android.ui.login.LoginActivity',
+      app: 'bs://d7324adb486da38fae20ec44e098f908379ba7d3',
+      device: 'Samsung Galaxy S20',
+      os_version: '10.0',
+      project: 'Meu primeiro projeto em Device Farm',
+      build: '1',
+      name: 'teste_login',
+
+      // platformName: 'Android',
+      // 'appium:platformVersion': '9',
+      // 'appium:deviceName': 'ebac-qe',
+      // 'appium:automationName': 'UiAutomator2',
+      // 'appium:app':
+      //   '/Users/larissanascimento/Projects/Cursos/EBAC/Engenharia de Qualidade de Software/testes-mobile/app/android/loja-ebac.apk',
+      // 'appium:appWaitActivity':
+      //   'com.woocommerce.android.ui.login.LoginActivity',
+      // newCommandTimeout: 240,
     },
   ],
   waitForTimeout: 20000,
   mochaOpts: {
     timeout: 300000,
-
     //   reporters: [
     //     'spec',
     //     [
